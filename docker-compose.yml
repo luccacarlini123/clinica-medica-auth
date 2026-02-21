@@ -1,0 +1,16 @@
+version: "3.9"
+
+networks:
+  clinicamedica-network:
+    external: true
+    driver: bridge
+    
+services:
+  clinicamedica-auth:
+    image: clinicamedica-auth:1.0.0
+    environment:
+      DB_HOST: clinicamedica-mysql
+    ports:
+      - "8081:8081"
+    networks:
+      - clinicamedica-network
